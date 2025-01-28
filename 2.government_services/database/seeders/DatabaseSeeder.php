@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
                 ['type' => 'Business License'],
             ]);
 
-            Violation::factory(2)->create(['license_id' => $citizen->licenses->inRandomOrder()->first()->id]);
+            Violation::factory(2)->create(['license_id' => $citizen->licenses()->inRandomOrder()->first()->id]);
         });
     }
 }

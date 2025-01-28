@@ -2,6 +2,7 @@
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/education_administration/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/1.education_administration/app" isTestSource="false" packagePrefix="App\" />
       <sourceFolder url="file://$MODULE_DIR$/1.education_administration/database/factories" isTestSource="false" packagePrefix="Database\Factories\" />
       <sourceFolder url="file://$MODULE_DIR$/1.education_administration/database/seeders" isTestSource="false" packagePrefix="Database\Seeders\" />

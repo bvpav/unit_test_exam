@@ -6,10 +6,11 @@
         <settings>
           <configurations>
             <local_configuration configuration_file_path="$PROJECT_DIR$/government_services/phpunit.xml" executable_path="$PROJECT_DIR$/government_services/vendor/pestphp/pest/bin/pest" use_configuration_file="true" />
-            <local_configuration configuration_file_path="$PROJECT_DIR$/photography_portfolio/phpunit.xml" executable_path="$PROJECT_DIR$/photography_portfolio/vendor/pestphp/pest/bin/pest" use_configuration_file="true" />
-            <local_configuration configuration_file_path="$PROJECT_DIR$/parking_management/phpunit.xml" executable_path="$PROJECT_DIR$/parking_management/vendor/pestphp/pest/bin/pest" use_configuration_file="true" />
             <local_configuration configuration_file_path="$PROJECT_DIR$/education_administration/phpunit.xml" executable_path="$PROJECT_DIR$/education_administration/vendor/pestphp/pest/bin/pest" use_configuration_file="true" />
+            <local_configuration configuration_file_path="$PROJECT_DIR$/parking_management/phpunit.xml" executable_path="$PROJECT_DIR$/parking_management/vendor/pestphp/pest/bin/pest" use_configuration_file="true" />
             <local_configuration configuration_file_path="$PROJECT_DIR$/shopping_cart/phpunit.xml" executable_path="$PROJECT_DIR$/shopping_cart/vendor/pestphp/pest/bin/pest" use_configuration_file="true" />
+            <local_configuration configuration_file_path="$PROJECT_DIR$/photography_portfolio/phpunit.xml" executable_path="$PROJECT_DIR$/photography_portfolio/vendor/pestphp/pest/bin/pest" use_configuration_file="true" />
+            <local_configuration configuration_file_path="$PROJECT_DIR$/3.parking_management/phpunit.xml" executable_path="$PROJECT_DIR$/3.parking_management/vendor/pestphp/pest/bin/pest" use_configuration_file="true" />
           </configurations>
         </settings>
       </tool>
