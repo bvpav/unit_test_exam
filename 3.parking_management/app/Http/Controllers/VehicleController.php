@@ -30,7 +30,7 @@ class VehicleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Vehicle $vehicle)
+    public function show(ParkingLot $parking_lot, Spot $spot, Vehicle $vehicle)
     {
         return response()->json($vehicle);
     }
