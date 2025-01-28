@@ -12,7 +12,7 @@ class School extends Model
     /** @use HasFactory<SchoolFactory> */
     use HasFactory;
 
-    protected $fillable = ['name', 'address'];
+    protected $fillable = ['name', 'address', 'principal_name'];
 
     /**
      * @return HasMany

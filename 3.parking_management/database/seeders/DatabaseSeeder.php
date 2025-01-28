@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
                 'parking_lot_id' => $lot->id,
             ]);
 
-            $spots->inRandomOrder()->limit(5)->each(function (Spot $spot) {
+            $spots->random(5)->each(function (Spot $spot) {
                 Vehicle::factory()->create([
                     'spot_id' => $spot->id,
                 ]);

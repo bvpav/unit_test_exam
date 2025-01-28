@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StudentRequest;
 use App\Http\Requests\UpdateStudentRequest;
 use App\Models\Classroom;
+use App\Models\School;
 use App\Models\Student;
 
 class StudentController extends Controller
@@ -12,7 +13,7 @@ class StudentController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Classroom $classroom)
+    public function index(School $school, Classroom $classroom)
     {
         return response()->json($classroom->students);
     }
@@ -20,7 +21,7 @@ class StudentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Classroom $classroom, StudentRequest $request)
+    public function store(School $school, Classroom $classroom, StudentRequest $request)
     {
         $student = $classroom->students()->create($request->validated());
 
@@ -30,7 +31,7 @@ class StudentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Student $student)
+    public function show(School $school, Classroom $classroom, Student $student)
     {
         return response()->json($student);
     }
@@ -38,7 +39,7 @@ class StudentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(StudentRequest $request, Student $student)
+    public function update(School $school, Classroom $classroom, StudentRequest $request, Student $student)
     {
         $student->update($request->validated());
 
@@ -48,7 +49,7 @@ class StudentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Student $student)
+    public function destroy(School $school, Classroom $classroom, Student $student)
     {
         $student->delete();
 

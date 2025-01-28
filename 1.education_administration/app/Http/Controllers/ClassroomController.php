@@ -30,7 +30,7 @@ class ClassroomController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Classroom $classroom)
+    public function show(School $school, Classroom $classroom)
     {
         return response()->json($classroom);
     }
@@ -38,7 +38,7 @@ class ClassroomController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(ClassroomRequest $request, Classroom $classroom)
+    public function update(School $school, ClassroomRequest $request, Classroom $classroom)
     {
         $classroom->update($request->validated());
 
@@ -48,7 +48,7 @@ class ClassroomController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Classroom $classroom)
+    public function destroy(School $school, Classroom $classroom)
     {
         $classroom->delete();
 
