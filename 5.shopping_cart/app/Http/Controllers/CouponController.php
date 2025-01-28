@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CouponRequest;
+use App\Models\Cart;
 use App\Models\Coupon;
 use App\Models\Item;
 
@@ -11,7 +12,7 @@ class CouponController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Item $item)
+    public function index(Cart $cart, Item $item)
     {
         return response()->json($item->coupons);
     }
@@ -19,7 +20,7 @@ class CouponController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Item $item, CouponRequest $request)
+    public function store(Cart $cart, Item $item, CouponRequest $request)
     {
         $coupon = $item->coupons()->create($request->validated());
 
@@ -29,7 +30,7 @@ class CouponController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Coupon $coupon)
+    public function show(Cart $cart, Item $item, Coupon $coupon)
     {
         return response()->json($coupon);
     }
@@ -37,7 +38,7 @@ class CouponController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(CouponRequest $request, Coupon $coupon)
+    public function update(Cart $cart, Item $item, CouponRequest $request, Coupon $coupon)
     {
         $coupon->update($request->validated());
 
@@ -47,7 +48,7 @@ class CouponController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Coupon $coupon)
+    public function destroy(Cart $cart, Item $item, Coupon $coupon)
     {
         $coupon->delete();
 

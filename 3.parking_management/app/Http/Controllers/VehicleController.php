@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\VehicleRequest;
+use App\Models\ParkingLot;
 use App\Models\Spot;
 use App\Models\Vehicle;
 
@@ -11,7 +12,7 @@ class VehicleController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Spot $spot)
+    public function index(ParkingLot $parking_lot, Spot $spot)
     {
         return response()->json($spot->vehicle);
     }
@@ -19,9 +20,9 @@ class VehicleController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(VehicleRequest $request)
+    public function store(ParkingLot $parking_lot, Spot $spot, VehicleRequest $request)
     {
-        $vehicle = Vehicle::create($request->validated());
+        $vehicle = $spot->vehicle()->create($request->validated());
 
         return response()->json($vehicle, 201);
     }
@@ -37,7 +38,7 @@ class VehicleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(VehicleRequest $request, Vehicle $vehicle)
+    public function update(ParkingLot $parking_lot, Spot $spot, VehicleRequest $request, Vehicle $vehicle)
     {
         $vehicle->update($request->validated());
 
@@ -47,7 +48,7 @@ class VehicleController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Vehicle $vehicle)
+    public function destroy(ParkingLot $parking_lot, Spot $spot, Vehicle $vehicle)
     {
         $vehicle->delete();
 

@@ -20,9 +20,9 @@ class LicenseController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(LicenseRequest $request)
+    public function store(Citizen $citizen, LicenseRequest $request)
     {
-        $license = License::create($request->validated());
+        $license = $citizen->licenses()->create($request->validated());
 
         return response()->json($license, 201);
     }
@@ -30,7 +30,7 @@ class LicenseController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(License $license)
+    public function show(Citizen $citizen, License $license)
     {
         return response()->json($license);
     }
@@ -38,7 +38,7 @@ class LicenseController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(LicenseRequest $request, License $license)
+    public function update(Citizen $citizen, LicenseRequest $request, License $license)
     {
         $license->update($request->validated());
 
@@ -48,7 +48,7 @@ class LicenseController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(License $license)
+    public function destroy(Citizen $citizen, License $license)
     {
         $license->delete();
 

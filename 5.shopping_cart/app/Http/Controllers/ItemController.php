@@ -29,7 +29,7 @@ class ItemController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Item $item)
+    public function show(Cart $cart, Item $item)
     {
         return response()->json($item);
     }
@@ -37,7 +37,7 @@ class ItemController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(ItemRequest $request, Item $item)
+    public function update(Cart $cart, ItemRequest $request, Item $item)
     {
         $item->update($request->validated());
 
@@ -47,7 +47,7 @@ class ItemController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Item $item)
+    public function destroy(Cart $cart, Item $item)
     {
         $item->delete();
 

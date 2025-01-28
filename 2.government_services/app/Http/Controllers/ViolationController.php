@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UpdateViolationRequest;
 use App\Http\Requests\ViolationRequest;
+use App\Models\Citizen;
 use App\Models\License;
 use App\Models\Violation;
 
@@ -12,7 +12,7 @@ class ViolationController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(License $license)
+    public function index(Citizen $citizen, License $license)
     {
         return response()->json($license->violations);
     }
@@ -20,7 +20,7 @@ class ViolationController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(License $license, ViolationRequest $request)
+    public function store(Citizen $citizen, License $license, ViolationRequest $request)
     {
         $violation = $license->violations()->create($request->validated());
 
@@ -30,7 +30,7 @@ class ViolationController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Violation $violation)
+    public function show(Citizen $citizen, License $license, Violation $violation)
     {
         return response()->json($violation);
     }
@@ -38,7 +38,7 @@ class ViolationController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(ViolationRequest $request, Violation $violation)
+    public function update(Citizen $citizen, License $license, ViolationRequest $request, Violation $violation)
     {
         $violation->update($request->validated());
 
@@ -48,7 +48,7 @@ class ViolationController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Violation $violation)
+    public function destroy(Citizen $citizen, License $license, Violation $violation)
     {
         $violation->delete();
 

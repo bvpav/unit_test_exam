@@ -29,7 +29,7 @@ class SpotController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Spot $spot)
+    public function show(ParkingLot $parking_lot, Spot $spot)
     {
         return response()->json($spot);
     }
@@ -37,7 +37,7 @@ class SpotController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(SpotRequest $request, Spot $spot)
+    public function update(ParkingLot $parking_lot, SpotRequest $request, Spot $spot)
     {
         $spot->update($request->validated());
 
@@ -47,7 +47,7 @@ class SpotController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Spot $spot)
+    public function destroy(ParkingLot $parking_lot, Spot $spot)
     {
         $spot->delete();
 

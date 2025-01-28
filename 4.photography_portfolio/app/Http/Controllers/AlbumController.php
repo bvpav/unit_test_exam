@@ -29,7 +29,7 @@ class AlbumController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Album $album)
+    public function show(Photographer $photographer, Album $album)
     {
         return response()->json($album);
     }
@@ -37,7 +37,7 @@ class AlbumController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(AlbumRequest $request, Album $album)
+    public function update(Photographer $photographer, AlbumRequest $request, Album $album)
     {
         $album->update($request->validated());
 
@@ -47,7 +47,7 @@ class AlbumController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Album $album)
+    public function destroy(Photographer $photographer, Album $album)
     {
         $album->delete();
 

@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PhotoRequest;
 use App\Models\Album;
 use App\Models\Photo;
+use App\Models\Photographer;
 
 class PhotoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Album $album)
+    public function index(Photographer $photographer, Album $album)
     {
         return response()->json($album->photos);
     }
@@ -19,7 +20,7 @@ class PhotoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Album $album, PhotoRequest $request)
+    public function store(Photographer $photographer, Album $album, PhotoRequest $request)
     {
         $album->photos()->create($request->validated());
 
@@ -29,7 +30,7 @@ class PhotoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Photo $photo)
+    public function show(Photographer $photographer, Album $album, Photo $photo)
     {
         return response()->json($photo);
     }
@@ -37,7 +38,7 @@ class PhotoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(PhotoRequest $request, Photo $photo)
+    public function update(Photographer $photographer, Album $album, PhotoRequest $request, Photo $photo)
     {
         $photo->update($request->validated());
 
@@ -47,7 +48,7 @@ class PhotoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Photo $photo)
+    public function destroy(Photographer $photographer, Album $album, Photo $photo)
     {
         $photo->delete();
 
