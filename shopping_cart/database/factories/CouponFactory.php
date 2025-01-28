@@ -2,10 +2,12 @@
 
 namespace Database\Factories;
 
+use App\Models\Coupon;
+use App\Models\Item;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Coupon>
+ * @extends Factory<Coupon>
  */
 class CouponFactory extends Factory
 {
@@ -17,7 +19,9 @@ class CouponFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'code' => $this->faker->word,
+            'discount' => $this->faker->randomFloat(2, 0, 100),
+            'item_id' => Item::factory(),
         ];
     }
 }

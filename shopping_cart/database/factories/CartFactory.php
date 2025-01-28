@@ -2,10 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\Cart;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Cart>
+ * @extends Factory<Cart>
  */
 class CartFactory extends Factory
 {
@@ -17,7 +18,8 @@ class CartFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'person_name' => $this->faker->name,
         ];
     }
 }
+

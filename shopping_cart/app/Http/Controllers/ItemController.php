@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreItemRequest;
-use App\Http\Requests\UpdateItemRequest;
+use App\Http\Requests\ItemRequest;
+use App\Models\Cart;
 use App\Models\Item;
 
 class ItemController extends Controller
@@ -11,17 +11,19 @@ class ItemController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Cart $cart)
     {
-        //
+        return response()->json($cart->items);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreItemRequest $request)
+    public function store(Cart $cart, ItemRequest $request)
     {
-        //
+        $item = $cart->items()->create($request->validated());
+
+        return response()->json($item, 201);
     }
 
     /**
@@ -29,15 +31,17 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
-        //
+        return response()->json($item);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateItemRequest $request, Item $item)
+    public function update(ItemRequest $request, Item $item)
     {
-        //
+        $item->update($request->validated());
+
+        return response()->json($item);
     }
 
     /**
@@ -45,6 +49,8 @@ class ItemController extends Controller
      */
     public function destroy(Item $item)
     {
-        //
+        $item->delete();
+
+        return response()->json(null, 204);
     }
 }
