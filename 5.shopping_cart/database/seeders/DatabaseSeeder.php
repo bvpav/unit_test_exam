@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
             ]);
 
             Coupon::factory()->create([
-                'item_id' => $items->inRandomOrder()->first()->id,
+                'item_id' => $items->random(1)->first()->id,
             ]);
         });
     }
